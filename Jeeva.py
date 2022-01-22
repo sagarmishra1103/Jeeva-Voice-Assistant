@@ -167,13 +167,14 @@ def task_Gui():
                 
                     elif 'what can you do' in statement or 'features' in statement :  
                         print('I am programmed to perform minor tasks. like;'
-                            '\nOpen Websites.\nOpen Browsers.\nOpen Applications.\nPlay songs on youtube.'
-                            '\nPredict time.\nTake a photo.\nSearch on Google\nWeather forecast in different cities.'
+                            'Play songs on youtube.'
+                            '\nPredict time.\nTake a photo.\nsearch on wikipedia'
+                            '\nSearch on Google\nWeather forecast in different cities.'
                             '\nSearch Something on wikipedia.\nGet top headline news from Google.'
                             '\nAnswer computational and geographical questions.')
 
                         speak('I am programmed to perform minor tasks. like;'
-                            'Opening Websites, Opening Browsers, Opening Applications, Play songs on youtube, '
+                            'Play songs on youtube, '
                             'Predict time, Take a photo, Search something on Google, Predict Weather forecast in different cities, '
                             'Search Something on wikipedia, Get top headline news from Google and I can Answer computational and geographical questions too.')
                         
@@ -212,11 +213,7 @@ def task_Gui():
                         time.sleep(20)
 
                     elif 'open gmail' in statement:
-                        url = 'https://mail.google.com'
-                        webbrowser.register('chrome',
-                            None,
-                        webbrowser.BackgroundBrowser("C://Program Files//BraveSoftware//Brave-Browser//Application//brave.exe"))
-                        webbrowser.get('chrome').open_new(url)
+                        webbrowser.open_new_tab("https://mail.google.com")
                         speak("Sure, opening Google Mail !")
                         time.sleep(20)
 
@@ -261,42 +258,6 @@ def task_Gui():
                         os.startfile(path)
                         time.sleep(15)
                     
-
-                    elif "discord" in statement:
-                        path = "C://Users//Pradeep Mishra//AppData//Roaming//Microsoft//Windows//Start Menu//Programs//Discord Inc//Discord.lnk"
-                        speak("Sure opening Discord. Enjoy Chatting with your buddies!")
-                        os.startfile(path)
-                        time.sleep(15)
-                    
-                    elif 'zoom' in statement:
-                        zpath = "C://Users//Pradeep Mishra//AppData//Roaming//Zoom//bin//Zoom.exe"
-                        speak("Sure sir opening Zoom Meetings")
-                        os.startfile(zpath)
-                        time.sleep(15)
-
-                    elif 'microsoft' in statement or 'ms' in statement:
-                        if "word" in statement:
-                            path ="C://ProgramData//Microsoft//Windows//Start Menu//Programs//Microsoft Office 2013//Word 2013.lnk"
-                            speak("Sure sir opening Microsoft Word")
-                            os.startfile(path)
-                            time.sleep(15)
-                        elif "excel" in statement:
-                            path = "C://ProgramData//Microsoft//Windows//Start Menu//Programs//Microsoft Office 2013//Excel 2013.lnk" 
-                            speak("Sure sir opening Microsoft Excel")
-                            os.startfile(path)
-                            time.sleep(15)
-                        elif "powerpoint" in statement:
-                            path = "C://ProgramData//Microsoft//Windows//Start Menu//Programs//Microsoft Office 2013//PowerPoint 2013.lnk"
-                            speak("Sure sir opening Microsoft Powerpoint")
-                            os.startfile(path)
-                            time.sleep(15)
-                        elif "publisher" in statement:                        
-                            path = "C://ProgramData//Microsoft//Windows//Start Menu//Programs//Microsoft Office 2013//Publisher 2013.lnk"
-                            speak("Sure sir opening Microsoft Publisher")
-                            os.startfile(path)
-                            time.sleep(15)
-                        
-                        
                     # utilities
                     # who is
                     elif 'who is' in statement:
@@ -356,7 +317,7 @@ def task_Gui():
                         time.sleep(7)
                     
                     #Activate how to do mode
-                    elif 'activate how to do mode' in statement:    
+                    elif 'activate how to do mode' in statement or 'how to do mode' in statement:    
                         speak('How to do mode is activated. Please tell me what you want to do...')
                         how = takeCommand()
                         time.sleep(5)
@@ -408,7 +369,7 @@ def task_Gui():
                         time.sleep(10)
 
                     #answering questions                
-                    elif 'answer question' in statement or 'answer a question' in statement  or 'ask question' in statement or 'ask some questions' in statement:
+                    elif 'ask' in statement and 'question' in statement:
                         speak('Sure, I can answer to computational and geographical questions !!')
                         print('Sure, I can answer to computational and geographical questions !!')
                         while True:
@@ -444,7 +405,9 @@ def task_Gui():
                     #Shutting down the pc
                     elif "shutdown the pc" in statement or "shut down the pc" in statement :
                         speak("Ok, your pc will Shut down in 10 second make sure you exit from all applications")
+                        print("Ok, your pc will Shut down in 10 second make sure you exit from all applications")
                         time.sleep (10)
+                        print("Do you really wish to shutdown your computer sir? \n(respond as Yes or no )")
                         speak("Do you really wish to shutdown your computer sir?")
                         confirmation=takeCommand()
                         if 'yes' in confirmation:
@@ -457,7 +420,9 @@ def task_Gui():
 
                     elif "restart the pc" in statement:
                         speak("Ok, your pc will restart in 10 second make sure you exit from all applications")
+                        print("Ok, your pc will restart in 10 second make sure you exit from all applications")
                         time.sleep (10)
+                        print("Do you really wish to restart your computer sir? \n(respond as Yes or no )")
                         speak("Do you really wish to restart your computer sir?")
                         confirmation=takeCommand()
                         if 'yes' in confirmation:
@@ -467,6 +432,7 @@ def task_Gui():
                         time.sleep(4)
 
                     elif "lock the pc" in statement:
+                        print("Ok sir, Locking your pc ")
                         speak("Ok sir, Locking your pc ")
                         time.sleep (2)
                         ctypes.windll.user32.LockWorkStation()
@@ -474,8 +440,11 @@ def task_Gui():
 
                     elif "hibernate the pc" in statement:
                         speak("Ok, your pc will Hybernate in 10 seconds")
+                        print("Ok, your pc will Hybernate in 10 seconds")
                         time.sleep (4)
+                        print("Do you really wish to Hybernate your computer sir? \n(respond as Yes or no )")
                         speak("Do you really wish to Hybernate your computer sir?")
+                        time.sleep(1)
                         confirmation=takeCommand()
                         if 'yes' in confirmation:
                            sp.call('shutdown /h /t 1', shell=True)
@@ -485,26 +454,19 @@ def task_Gui():
                     
                     elif "sign out current user" in statement or "signout current user" in statement: 
                         time.sleep (3)
+                        print("Do you really wish to sing out from PC?\n(respond as Yes or no )")
                         speak("Do you really wish to sing out from PC?")
+                        time.sleep(1)
                         confirmation=takeCommand()
                         if 'yes' in confirmation:
                             speak("Ok, Signing out current user...")
+                            print("Ok, Signing out current user...")
                             sp.call('shutdown /l /t 1', shell=True)
                         elif 'no' in confirmation:
                             continue
                         time.sleep(5)  
                     
-                    elif 'play music from pc' in statement:
-                        music_dir = 'C://Users//Pradeep Mishra//Music//my songs'
-                        songs = os.listdir(music_dir)
-                        print(songs) 
-                        speak("Which one you want to play?")
-                        speak("Pls Say the song number:") 
-                        time.sleep(5)
-                        cont= takeCommand().lower()
-                        cont=int(cont)
-                        os.startfile(os.path.join(music_dir, songs[cont]))
-                        time.sleep(5)   
+                 
 
                     else: 
                         print("Sorry sir, I didn't get that ! ")
