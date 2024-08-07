@@ -1,8 +1,8 @@
-# J.E.E.V.A. AI Voice Assistant 🤖
+# Jeeva AI Voice Assistant 🤖
 
 ## About
 
-The J.E.E.V.A. voice assistant is a CMD-based AI Voice Assistant. This application allows users to interact with the assistant via a command-line interface. The assistant utilizes various Python libraries, the WolframAlpha API, available Microsoft voices in Windows, OpenCV, and PyQt5 for GUI components.
+The JEEVA voice assistant is a CMD-based AI Voice Assistant. This application allows users to interact with the assistant via a command-line interface. The assistant utilizes various Python libraries, the WolframAlpha API, available Microsoft voices in Windows, OpenCV, and PyQt5 for GUI components.
 
 ## Features
 
@@ -32,7 +32,7 @@ cd <repository-directory>
 To start the J.E.E.V.A. voice assistant, run:
 
 ```bash
-python jeeva_voice_assistant.py
+python Jeeva Voice Assistant.py
 ```
 ## Usage
 - **Command-Line Interface**: Interact with the assistant via the command-line interface.
